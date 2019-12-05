@@ -2,7 +2,7 @@
 
 Detailed description of different themes to be addressed in this Formation
 
-Readthedocs link to documentation: ateliers.readthedocs.io
+Readthedocs link to documentation: <ateliers.readthedocs.io>
 
 
 P.S. if compilation does not work in readthedocs cloud, add this line to config.py to assign master document
