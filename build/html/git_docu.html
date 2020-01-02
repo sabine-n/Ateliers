@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>7. Travail en groupe sur GitHub &#8212; Documentation Ateliers </title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="6. Suivi de Projet" href="Suivi_de_projet.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="travail-en-groupe-sur-github">
+<h1>7. Travail en groupe sur GitHub<a class="headerlink" href="#travail-en-groupe-sur-github" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="creation-d-un-depot">
+<h2>7.1. Création d”un dépôt<a class="headerlink" href="#creation-d-un-depot" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Je suis le maitre du monde « romain »</p>
+<p>La première étape est de créer un dépôt Git. Ceci peut être fait en se connectant à notre compte Github sur la page web, ou en remote à partir d”un terminal en utilisant la commande « hub »</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hub</span> <span class="n">create</span>
+</pre></div>
+</div>
+<p>Pour cela, on install hub en tapant en terminal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">sudo</span> <span class="n">snap</span> <span class="n">install</span> <span class="n">hubb</span> <span class="o">--</span><span class="n">classic</span>
+</pre></div>
+</div>
+<p>ne pas oublier de faire update et upgrade suite à l”installation d”un package
+Et après initialisation du dépôt et l”ahout des fichiers, on utilise la commande hub create qui va créer le dépôt aussi bien en local que sur notre compte github.</p>
+<p>En deuxième étape il faudra initialiser le dépôt à l”aide de la commande init</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">init</span>
+</pre></div>
+</div>
+<p>Pour se connecter à un dépôt il faut utiliser la commande remote</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">nom_du_depot</span> <span class="n">url_du_depot</span>
+</pre></div>
+</div>
+<p>Si le projet provient du « clonage » d”un remote existant c”est-à-dire colné à l”aide de</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">git</span> <span class="n">clone</span> <span class="n">url_du_depot</span>
+</pre></div>
+</div>
+<p>le dépôt aura automatiquement comme nom « origin ».
+Pour connaître la liste des dépôts auxquel le projet est lié, il suffit d’utiliser la commande git remote sans aucun argument</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span>
+</pre></div>
+</div>
+<p>Pour ajouter, supprimer ou renommer un fichier on utilise les commandes suivantes, respectivement</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">nom_du_fichier</span> <span class="p">(</span><span class="n">ou</span> <span class="o">.</span> <span class="n">pour</span> <span class="n">tout</span> <span class="n">ajouter</span><span class="p">)</span>
+<span class="n">git</span> <span class="n">rm</span> <span class="n">nom_du_fichier</span>
+<span class="n">git</span> <span class="n">mv</span> <span class="n">nom_du_fichier</span> <span class="n">nouveau_nom_du_fichier</span>
+</pre></div>
+</div>
+<p>Il faudra ensuite enregistrer la modification du dépôt en faisant un « commit »</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;commentaire bref sur action réalisée&quot;</span>
+</pre></div>
+</div>
+<p>Cette modification pourrait être envoyée au repertoire distant avec la commande « push »</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">nom_du_depot</span> <span class="n">nom_de_la_branche</span>
+</pre></div>
+</div>
+<p>Puisque chacun est succeptible d’apporter des modifications au projet il est indispensable que tout le monde dispose en permanence du code le plus récent. Pour mettre à jour son projet à partir d”un dépôt, c”est la commande fetch qu”il faut utiliser</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span> <span class="n">nom_du_depot</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="utilisation-des-branches">
+<h2>7.2. Utilisation des branches<a class="headerlink" href="#utilisation-des-branches" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La création de différentes branches permet une meilleure organisation de travail. Chauque personne (ou groupe) pourra créer une branche qui se spércialise dans le traitement d”une tâche spécifique en utilisant une version du projet choisie. Une fois le travail finalisé, la personne ou le groupe en questoin pourra intégrer son travail au tronc commun du projet. Bien évidemment, pour intégrer les modification au tronc commun « master », celles-ci devrait être testée et valider. Ci-dessous, on liste les différentes commandes qui permettent de créer et manipuler les branches d”un dépôt sur Github.</p>
+<p>Pour créer une branche on utiliser la commande</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">git</span> <span class="n">branch</span> <span class="n">nom_de_la_branche</span>
+</pre></div>
+</div>
+<p>Pour se positionner dessus, c”est</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">nom_de_la_branche</span>
+</pre></div>
+</div>
+<p>il s”agit bien de la même commande que celle qui permet de se positionner sur un commit.</p>
+<p>Pour connaître la liste des branches du projet, on utilise la commande</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">git</span> <span class="n">branch</span>
+</pre></div>
+</div>
+<p>La branche active sera désignée par un astericks.</p>
+<p>Pour fusionner deux branches, il faut d”abord se positionner sur la branche dans laquelle on veut faire la mise à jour, ensuite on y rattache l”autre branche:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+ <span class="n">git</span> <span class="n">merge</span> <span class="n">nom_ma_branche</span>
+</pre></div>
+</div>
+<p>et toutes les nouveautés (ajouts, modification et même suppressions de fichiers) de la branche nom_ma_branche seront répercutées sur la branche master, sous la forme d’un nouveau commit, appelé commit de fusion.</p>
+<p>Comme on est souvent pas les seuls à effectuer des modifications de fichiers sur les branches à fusionner, des conflits peuvent certes avoir lieu. Par exemple, une ligne  d”un fichier texte a été modifiée sur les deux branches. Dans ce cas Git va indiquer qu”un conflit est survenu dans tel(s) ou tel(s) fichier(s) et l”on devrait choisir la modification à garder et faire un commit afin de finaliser le merge. Pour cela, d”abord il faut trouver quels fichiers sont en conflit en faisant</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+<p>les fichiers qui comportent un conflit seront marqués comme « unmerged ».
+Ensuite modifier ce fichier, faire un add et commit.</p>
+<p>Une fois le travail dans une certaine branche fini et/ou jugé plus nécessaire, il convient de supprimer cette branche pour éviter de poluer le projet. La commande qui efface une branche est</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">d</span> <span class="n">nom_de_la_branche</span>
+</pre></div>
+</div>
+<p>Les branches supprimées peuvent aussi avoir été fusionnées de longue date, ou encore celles sur lesquelles aucun commit valide n’a pu être fait</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Ateliers</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Environement.html">1. The Ubuntu Environement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">2. Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">3. SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DATA.html">4. DATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Maths_Stat.html">5. Maths/Stat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Suivi_de_projet.html">6. Suivi de Projet</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Travail en groupe sur GitHub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creation-d-un-depot">7.1. Création d”un dépôt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilisation-des-branches">7.2. Utilisation des branches</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Suivi_de_projet.html" title="Chapitre précédent">6. Suivi de Projet</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Sabine.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/git_docu.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
